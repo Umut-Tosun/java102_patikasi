@@ -1,4 +1,4 @@
-package ObjectOrientedProgramming;
+package ObjectOrientedProgramming.Encapsulation;
 
 public class Book {
     private String author,bookName;
