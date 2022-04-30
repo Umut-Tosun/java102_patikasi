@@ -31,4 +31,9 @@ public class Academician extends Emplyoee{
     {
         System.out.println(this.getName()+" "+this.getSurname()+" Derse Girdi.");
     }
+    @Override
+    public void enter()
+    {
+        System.out.println(this.getName()+" "+this.getSurname()+" Akademisyeni Giriş Yaptı!");
+    }
 }

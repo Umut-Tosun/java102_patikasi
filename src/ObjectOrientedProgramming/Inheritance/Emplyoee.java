@@ -45,18 +45,18 @@ public class Emplyoee {
         this.email = email;
     }
 
-    public void giris()
+    public void enter()
     {
-        System.out.println(this.name+" "+this.surname+" Üniversİteye Giriş Yaptı.");
+        System.out.println(this.getName()+" "+this.getSurname()+" Üniversİteye Giriş Yaptı.");
     }
 
     public void exit()
     {
-        System.out.println(this.name+" "+this.surname+" Üniversİteden Çıkış Yaptı.");
+        System.out.println(this.getName()+" "+this.getSurname()+" Üniversİteden Çıkış Yaptı.");
     }
 
     public void canteen()
     {
-        System.out.println(this.name+" "+this.surname+" Yemekhaneye Giriş Yaptı.");
+        System.out.println(this.getName()+" "+this.getSurname()+" Yemekhaneye Giriş Yaptı.");
     }
 }
