@@ -33,6 +33,15 @@ public class Main {
 
         ip1.networkSetup();
 
+        SecurityGuard sc1 = new SecurityGuard("Barış","Uzun","5664567876","baris.uzun201@gmail.com","Yazılım","09:00-18:00","X");
+
+        sc1.ensureSecurity();
+
+        LabAssistant la1 = new LabAssistant("Gamze","Koş","5545678789","gamzep@gmail.com","Psikoloji","Lab Asistanı","4");
+
+        la1.attendClass();
+        la1.enterLabs();
+
 
 
     }
