@@ -44,6 +44,16 @@ public class Main {
 
         l1.enter();
 
+        Officer o1 = new Officer("Tahir","Usta","5678789898","tahiusta@gmail.com","Polis","09:00-18:00");
+
+        o1.enter();
+
+        //int [] loginUser=new int[5];
+        System.out.println("**************** Polymorphism ****************");
+        Emplyoee[] loginUser = {sc1,acdm1,l1,ast2,o1};
+        emp1.loginUser(loginUser);
+
+
 
 
     }

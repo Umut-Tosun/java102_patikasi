@@ -59,4 +59,10 @@ public class Emplyoee {
     {
         System.out.println(this.getName()+" "+this.getSurname()+" Yemekhaneye Giriş Yaptı.");
     }
+    public static void loginUser(Emplyoee[]loginUsers)
+    {
+        for (Emplyoee emp:loginUsers) {
+            emp.enter();
+        }
+    }
 }

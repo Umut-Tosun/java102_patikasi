@@ -25,6 +25,6 @@ public class Lecturer extends  Academician{
     @Override
     public void enter()
     {
-        System.out.println(this.getName()+" "+this.getSurname()+" Ögretim Görevlisi Dışardan Giriş Yaptı!");
+        System.out.println(this.getName()+" "+this.getSurname()+" Ögretim Görevlisi Giriş Yaptı!");
     }
 }

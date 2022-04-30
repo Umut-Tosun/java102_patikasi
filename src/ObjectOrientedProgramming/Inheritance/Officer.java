@@ -29,4 +29,9 @@ public class Officer extends Emplyoee{
     {
         System.out.println(this.getName()+" "+this.getSurname()+" Görevine Başladı.");
     }
+    @Override
+    public void enter()
+    {
+        System.out.println(this.getName()+" "+this.getSurname()+" Memuru Giriş Yaptı");
+    }
 }
