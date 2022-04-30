@@ -7,7 +7,7 @@ public class Main {
         Emplyoee emp1 = new Emplyoee("Umut","Tosun","5539898071","tosun.umutt@gmail.com");
         Academician acdm1 = new Academician("Emirhan","Kep","5549875643","emirhankep@hotmail.com","Matematik","Doçent");
 
-        emp1.giris();
+        emp1.enter();
         acdm1.canteen();
         acdm1.attendClass();
 
@@ -23,7 +23,7 @@ public class Main {
 
         Academician ast1  = new Assistant("Eren","Güner","5677889898","erengnr@gmail.com","Personel Assistant","Chief Assistant","7");
 
-        ast1.giris();
+        ast1.enter();
 
         Assistant ast2 = new Assistant("Demir","Yekta","5677887898","demirykt@gmail.com","Personel Assistant","Chief Assistant","6");
 
@@ -41,6 +41,8 @@ public class Main {
 
         la1.attendClass();
         la1.enterLabs();
+
+        l1.enter();
 
 
 
