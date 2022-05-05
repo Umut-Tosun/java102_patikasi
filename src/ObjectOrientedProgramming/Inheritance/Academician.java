@@ -1,6 +1,6 @@
 package ObjectOrientedProgramming.Inheritance;
 
-public class Academician extends Emplyoee{
+public abstract class Academician extends Emplyoee{
     private String branch;
     private String title;
 
@@ -27,10 +27,7 @@ public class Academician extends Emplyoee{
         this.title = title;
     }
 
-    public void attendClass()
-    {
-        System.out.println(this.getName()+" "+this.getSurname()+" Derse Girdi.");
-    }
+    public abstract void attendClass(String dersSaat);
     @Override
     public void enter()
     {

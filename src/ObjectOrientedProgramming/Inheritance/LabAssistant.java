@@ -1,6 +1,6 @@
 package ObjectOrientedProgramming.Inheritance;
 
-public class LabAssistant extends Assistant{
+public abstract class LabAssistant extends Assistant{
     public LabAssistant(String name, String surname, String mpNo, String email, String branch, String title, String meetNumber) {
         super(name, surname, mpNo, email, branch, title, meetNumber);
     }

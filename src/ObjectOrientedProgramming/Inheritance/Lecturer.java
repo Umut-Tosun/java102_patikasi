@@ -27,4 +27,9 @@ public class Lecturer extends  Academician{
     {
         System.out.println(this.getName()+" "+this.getSurname()+" Ögretim Görevlisi Giriş Yaptı!");
     }
+    @Override
+    public void attendClass(String dersSaat)
+    {
+        System.out.println(this.getName()+" "+this.getSurname()+" Ögretim Görevlisi "+dersSaat+" Giriş Yaptı.");
+    }
 }

@@ -1,6 +1,6 @@
 package ObjectOrientedProgramming.Inheritance;
 
-public class Officer extends Emplyoee{
+public abstract class Officer extends Emplyoee{
     private String branch;
     private String shift;
 
