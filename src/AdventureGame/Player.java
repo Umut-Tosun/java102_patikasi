@@ -25,7 +25,7 @@ public class Player {
     public void printInfo()
     {
         System.out.println("\nSilah : "+this.getInventory().getWeapon().getName()+"\t Zırh : "+this.getInventory().getArmor().getName()+"\t Engelleme : "+this.getInventory().getArmor().getBlock()
-                +"\t Hasar : "+this.getDamage()+"\t Sağlık : "+this.getHealth()+" Para : "+this.money);
+                +"\t Hasar : "+this.gettotalDamage()+"\t Sağlık : "+this.getHealth()+" Para : "+this.money);
     }
 
     //region getSetMethods

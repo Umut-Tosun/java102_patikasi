@@ -41,16 +41,17 @@ public class ToolStore extends NormalLocation{
         System.out.println("Mevcut Bakiye : "+this.getPlayer().getMoney());
         System.out.println("\n------------------ Silahlar -----------------------------\n");
         for (Weapon w:Weapon.weapons()) {
+            if (w.getDamage()>0)
             System.out.println("Silah No : "+w.getId()+"\t Tür : "+w.getName()+"\t Hasar : "+w.getDamage()+"\t Fiyat : "+w.getPrice());
         }
-        System.out.println("Çıkış : "+(Weapon.weapons().length+1));
+        System.out.println("Çıkış : "+(Weapon.weapons().size()-1));
         System.out.println("\n---------------------------------------------------------\n");
     }
     public void buyWeapon()
     {
         System.out.print("\nSeçiminiz : ");
         int selectGun=Location.input.nextInt();
-        while (selectGun<1 || selectGun>Weapon.weapons().length+1)
+        while (selectGun<1 || selectGun>Weapon.weapons().size()+1)
         {
             System.out.print("Seçiminiz : ");
             selectGun=Location.input.nextInt();
@@ -78,16 +79,17 @@ public class ToolStore extends NormalLocation{
         System.out.println("Mevcut Bakiye : "+this.getPlayer().getMoney());
         System.out.println("\n------------------ Zırhlar -----------------------------\n");
         for (Armor a:Armor.armors()) {
+            if (a.getBlock()>0)
             System.out.println("Zırh No : "+a.getId()+"\t Tür : "+a.getName()+"\t Engelleme : "+a.getBlock()+"\t Fiyat : "+a.getPrice());
         }
-        System.out.println("Çıkış : "+(Armor.armors().length+1));
+        System.out.println("Çıkış : "+(Armor.armors().size()-1));
         System.out.println("\n---------------------------------------------------------\n");
     }
     public void buyArmor()
     {
         System.out.print("\nSeçiminiz : ");
         int selectArmor=Location.input.nextInt();
-        while (selectArmor<1 || selectArmor>Armor.armors().length+1)
+        while (selectArmor<0 || selectArmor>Armor.armors().size()+1)
         {
             System.out.print("Seçiminiz : ");
             selectArmor=Location.input.nextInt();

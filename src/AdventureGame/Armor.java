@@ -1,16 +1,30 @@
 package AdventureGame;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class Armor {
     private  int id;
     private String name;
     private int block;
     private int price;
 
-    public Armor(int id, String name, int block, int price) {
-        this.id = id;
+    private static final AtomicInteger atomicInteger = new AtomicInteger(-1);
+    private static final List<Armor> armorList = new ArrayList<>();
+
+    public Armor(String name, int block, int price) {
+        this.id = atomicInteger.incrementAndGet();
         this.name = name;
         this.block = block;
         this.price = price;
+        armorList.add(this);
+    }
+    static {
+        new Armor("Hafif Zırh",1,15);
+        new Armor("Orta Zırh",3,25);
+        new Armor("Ağır Zırh",5,40);
+        // bunlar direkt listeye eklendi ve id için elle müdahale gerekmiyor
     }
 
     //region getSetMethods
@@ -50,21 +64,13 @@ public class Armor {
 
     //endregion
 
-    public static Armor[] armors()
-    {
-        Armor[] armors = {new Armor(1,"Hafif Zırh",1,5),new Armor(2,"Orta Zırh",3,10),
-                new Armor(3,"Ağır Zırh",5,15)};
-        return armors;
+    public static List<Armor> armors() {
+        return armorList;
     }
-    public static Armor getArmorObjById(int id)
-    {
-        for (Armor w:Armor.armors())
-        {
-            if (w.getId()==id)
-            {
-                return w;
-            }
-        }
-        return null;
+
+    public static Armor getArmorObjById(int id) {
+        // list.get methodu uygun objeyi bulamazsa null dönderir
+        return armorList.get(id);
     }
+
 }

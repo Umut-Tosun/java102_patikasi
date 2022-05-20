@@ -58,24 +58,21 @@ public class BattleLoc extends Location{
                     int number = randomNumber();
                     if (number<15) //15 şans
                     {
-                         number = randomNumber();
-                         if (number<=20) changeWeapon(3);
-                         else if (number<=50) changeWeapon(2);
-                         else if (number<=100) changeWeapon(1);
+                        number = randomNumber();
+                        int chosenid = number < 21 ? 3 : number < 51 ? 2 : number < 101 ? 1 : 0;
+                        changeWeapon(chosenid);
                     }
                     else if (number<30) //15 şans
                     {
                         number = randomNumber();
-                        if (number<=20) changeArmor(3);
-                        else if (number<=50) changeArmor(2);
-                        else if (number<=100) changeArmor(1);
+                        int chosenid = number < 21 ? 3 : number < 51 ? 2 : number < 101 ? 1 : 0;
+                        changeArmor(chosenid);
                     }
                     else if (number<55) //25 şans
                     {
                         number = randomNumber();
-                        if (number<20) addMoney(10);
-                        else if (number<50) addMoney(5);
-                        else if (number<100) addMoney(1);
+                        int chosenid = number < 21 ? 10 : number < 51 ? 5 :1;
+                        addMoney(chosenid);
                     }
                     else {System.out.println("Bölgeden Hiçbirşey Kazanamadınız !");} //45 Şans
 
