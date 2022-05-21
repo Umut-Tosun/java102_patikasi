@@ -1,6 +1,7 @@
 package AdventureGame;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,7 +12,7 @@ public class Game {
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_YEŞİL = "\u001B[32m";
 
-    public static  List<String> territoriesWon = new ArrayList<>();
+    public static HashSet<String> territoriesWon = new HashSet<>();
 
     public void start()
     {
