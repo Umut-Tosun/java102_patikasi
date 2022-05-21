@@ -6,6 +6,7 @@ public class BattleLoc extends Location{
     private Obstacle obstacle;
     private String award;
     private int maxObstacle;
+    Random random = new Random();
 
     public BattleLoc(Player player, String name, int id, String description,Obstacle obstacle,String award,int maxObstacle) {
         super(player, name, id, description);
@@ -52,28 +53,28 @@ public class BattleLoc extends Location{
                     System.out.println();
                     System.out.println("Bölgeye Özel Ödülün : " + this.getAward() + " Kazanıldı !");
                 } else {
-                    int number = randomNumber();
-                    if (number < 15) //15 şans
+                    int number = randomNumber(1,101);
+                    int chosenid;
+                    if (number < 15)
                     {
-                        number = randomNumber();
-                        int chosenid = number < 21 ? 3 : number < 51 ? 2 : number < 101 ? 1 : 0;
+                        number = randomNumber(1,101);
+                        chosenid = number < 21 ? 3 : number < 51 ? 2 : number < 101 ? 1 : 0;
                         changeWeapon(chosenid);
-                    } else if (number < 30) //15 şans
+                    } else if (number < 30)
                     {
-                        number = randomNumber();
-                        int chosenid = number < 21 ? 3 : number < 51 ? 2 : number < 101 ? 1 : 0;
+                        number = randomNumber(1,101);
+                        chosenid = number < 21 ? 3 : number < 51 ? 2 : number < 101 ? 1 : 0;
                         changeArmor(chosenid);
-                    } else if (number < 55) //25 şans
+                    } else if (number < 55)
                     {
-                        number = randomNumber();
-                        int chosenid = number < 21 ? 10 : number < 51 ? 5 : 1;
+                        number = randomNumber(1,101);
+                        chosenid = number < 21 ? 10 : number < 51 ? 5 : 1;
                         addMoney(chosenid);
                     } else {
                         System.out.println("Bölgeden Hiçbirşey Kazanamadınız !");
-                    } //45 Şans
+                    }
 
                 }
-
                 Game.territoriesWon.add(this.getName());
                 System.out.println("ORTALIK TOZ DUMAN ! Düşmanları Bölgeden Temizledin");
                 return true;
@@ -96,14 +97,15 @@ public class BattleLoc extends Location{
     {
         this.getPlayer().setMoney(this.getPlayer().getMoney()+money);
     }
-    public int randomNumber() {
+    public int randomNumber(int origin,int bound) {
         Random rnd = new Random();
-        int number = rnd.nextInt(1,101);
+        int number = rnd.nextInt(origin,bound);
         return number;
     }
 
     public boolean combat(int obsNumber)
     {
+        int number;
         for (int i=obsNumber;i>=1;i--) {
             System.out.println(i+" "+this.obstacle.getName()+ " Kaldı !");
             this.obstacle.setHealth(this.obstacle.getDefHealth());
@@ -119,22 +121,15 @@ public class BattleLoc extends Location{
                     System.out.println();
                  }
                 if (selectCombat.equals("V")) {
-                    System.out.println(ANSI_YEŞİL+"-----------------------------------------------------------");
-                    System.out.println("Saldırıyorsun ! Artık Geri Adım Atmak Yok !\n");
-                    this.obstacle.setHealth(this.obstacle.getHealth()-this.getPlayer().gettotalDamage());
-                    System.out.println(this.getPlayer().gettotalDamage()+" Hasar Verdin");
-                    afterHit();
-                    System.out.println(ANSI_RESET);
-                    if (this.getObstacle().getHealth()>0) {
-                        System.out.println();
-                        System.out.println(ANSI_KIRMIZI+"Hey Düşmanların Canına Kastediyor !\n");
-                        int obstacleDamage=this.obstacle.getDamage()-this.getPlayer().getInventory().getArmor().getBlock();
-                        System.out.println(obstacleDamage+" Hasar Aldın !");
-                        if (obstacleDamage<0)
-                            obstacleDamage=0;
-                        this.getPlayer().setHealth(this.getPlayer().getHealth()-obstacleDamage);
-                        afterHit();
-                        System.out.println("-----------------------------------------------------------"+ANSI_RESET);
+                    number = randomNumber(0,2);
+                    if (number==0) {
+                        attack();
+                        obstacleAttack();
+                    }
+                    else
+                    {
+                        obstacleAttack();
+                        attack();
                     }
                 }
                 else return false;
@@ -149,6 +144,27 @@ public class BattleLoc extends Location{
             else return false;
         }
         return true;
+    }
+    public void attack() {
+        System.out.println(ANSI_YEŞİL+"-----------------------------------------------------------");
+        System.out.println("Saldırıyorsun ! Artık Geri Adım Atmak Yok !\n");
+        this.obstacle.setHealth(this.obstacle.getHealth()-this.getPlayer().gettotalDamage());
+        System.out.println(this.getPlayer().gettotalDamage()+" Hasar Verdin");
+        afterHit();
+        System.out.println(ANSI_RESET);
+    }
+    public void obstacleAttack() {
+        if (this.getObstacle().getHealth()>0) {
+            System.out.println();
+            System.out.println(ANSI_KIRMIZI+"Hey Düşmanların Canına Kastediyor !\n");
+            int obstacleDamage=this.obstacle.getDamage()-this.getPlayer().getInventory().getArmor().getBlock();
+            System.out.println(obstacleDamage+" Hasar Aldın !");
+            if (obstacleDamage<0)
+                obstacleDamage=0;
+            this.getPlayer().setHealth(this.getPlayer().getHealth()-obstacleDamage);
+            afterHit();
+            System.out.println("-----------------------------------------------------------"+ANSI_RESET);
+        }
     }
     public void obstacleStats()
     {
