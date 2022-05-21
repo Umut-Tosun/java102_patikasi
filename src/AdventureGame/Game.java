@@ -1,5 +1,7 @@
 package AdventureGame;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Game {
@@ -9,10 +11,11 @@ public class Game {
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_YEŞİL = "\u001B[32m";
 
+    public static  List<String> territoriesWon = new ArrayList<>();
+
     public void start()
     {
-        int number=0;
-        int []ww=new int[5];
+        territoriesWon.add("Test");
         boolean control=false;
         System.out.print("Lütfen Bir İsim Giriniz : ");
         String playerName=input.next();
@@ -44,7 +47,17 @@ public class Game {
             System.out.print("\nBölge Seçiminiz : ");
             int selectLocation = input.nextInt();
 
+            System.out.println();
 
+            for (String x:territoriesWon) {
+                if (x!=null) {
+                    if (x.equals("Mağara") && selectLocation == 3) control = true;
+                    else if (x.equals("Nehir") && selectLocation == 5) control = true;
+                    else if (x.equals("Orman") && selectLocation == 4) control = true;
+                    else if (x.equals("Maden") && selectLocation == 6) control = true;
+                }
+            }
+            if (control!=true) {
                 switch (selectLocation) {
                     case 0: location = null;break;
                     case 1: location = new SafeHouse(player);break;
@@ -55,17 +68,17 @@ public class Game {
                     case 6: location = new Mine(player);break;
                     default: location = new SafeHouse(player);break;
                 }
-
-
-
-                if (location == null) {
+                 if (location == null) {
                     System.out.println("\nDemek Kaçıyorsun " + ANSI_KIRMIZI + "Zanka" + ANSI_RESET + " Seni Bekliyor Olucak ..."); break;
-                }
+                 }
 
-                if (!location.onLocation()) {
+                 if (!location.onLocation()) {
                     System.out.println("GAME OVER !");break;
                 }
+           }
+            else System.out.println("Bu Bölge Zaten Kazanıldı !");
 
+            control=false;
         }
     }
 }

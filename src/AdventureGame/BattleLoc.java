@@ -48,36 +48,33 @@ public class BattleLoc extends Location{
             System.out.print(ANSI_KIRMIZI + "\n<S>" + ANSI_RESET + "avaş Yada " + ANSI_KIRMIZI + "<K>" + ANSI_RESET + "aç : ");
             String selectBattleCase = Location.input.next().toUpperCase();
             if (selectBattleCase.equals("S") && combat(obsNumber)) {
-                if (!this.getAward().equals(""))
-                {
+                if (!this.getAward().equals("")) {
                     System.out.println();
-                    System.out.println("Bölgeye Özel Ödülün : "+this.getAward()+" Kazanıldı !");
-                }
-                else
-                {
+                    System.out.println("Bölgeye Özel Ödülün : " + this.getAward() + " Kazanıldı !");
+                } else {
                     int number = randomNumber();
-                    if (number<15) //15 şans
+                    if (number < 15) //15 şans
                     {
                         number = randomNumber();
                         int chosenid = number < 21 ? 3 : number < 51 ? 2 : number < 101 ? 1 : 0;
                         changeWeapon(chosenid);
-                    }
-                    else if (number<30) //15 şans
+                    } else if (number < 30) //15 şans
                     {
                         number = randomNumber();
                         int chosenid = number < 21 ? 3 : number < 51 ? 2 : number < 101 ? 1 : 0;
                         changeArmor(chosenid);
-                    }
-                    else if (number<55) //25 şans
+                    } else if (number < 55) //25 şans
                     {
                         number = randomNumber();
-                        int chosenid = number < 21 ? 10 : number < 51 ? 5 :1;
+                        int chosenid = number < 21 ? 10 : number < 51 ? 5 : 1;
                         addMoney(chosenid);
-                    }
-                    else {System.out.println("Bölgeden Hiçbirşey Kazanamadınız !");} //45 Şans
+                    } else {
+                        System.out.println("Bölgeden Hiçbirşey Kazanamadınız !");
+                    } //45 Şans
 
                 }
 
+                Game.territoriesWon.add(this.getName());
                 System.out.println("ORTALIK TOZ DUMAN ! Düşmanları Bölgeden Temizledin");
                 return true;
             }
