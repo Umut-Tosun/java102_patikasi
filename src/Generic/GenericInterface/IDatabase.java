@@ -1,4 +1,4 @@
-package GenericInterface;
+package Generic.GenericInterface;
 
 public interface IDatabase<T> {
    public boolean add(T data);

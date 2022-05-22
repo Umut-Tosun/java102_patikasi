@@ -1,4 +1,4 @@
-package GenericInterface;
+package Generic.GenericInterface;
 
 public class Student<T> implements IDatabase<T>{
     @Override
