@@ -1,6 +1,4 @@
-package GenericClasses;
-
-import java.util.Objects;
+package Generic.GenericClasses;
 
 public class Main {
     public static void main(String[] args) {

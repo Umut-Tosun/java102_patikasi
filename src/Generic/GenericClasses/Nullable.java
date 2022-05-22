@@ -1,4 +1,4 @@
-package GenericClasses;
+package Generic.GenericClasses;
 
 public class Nullable <T>{
     private final T value;

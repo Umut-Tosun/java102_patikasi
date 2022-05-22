@@ -1,4 +1,4 @@
-package GenericClasses;
+package Generic.GenericClasses;
 
 public class Test<T,T1,T2> {
 

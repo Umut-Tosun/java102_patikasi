@@ -1,17 +1,18 @@
-package GenericClasses;
+package Generic.GenericClasses;
 
-public class NullableInteger {
-    private final Integer value;
+public class NullableString {
+    private final String value;
 
-    public NullableInteger(Integer value) {
+    public NullableString(String value) {
         this.value = value;
     }
 
-    public Integer getValue() {
+    public String getValue() {
         return value;
     }
+
     public boolean isNull(){
-        return this.value==null;
+        return getValue()==null;
     }
     public void run(){
         System.out.println(isNull()?"Bu değişkene değer atanmamıştır.":this.value);
