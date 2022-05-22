@@ -1,4 +1,4 @@
-package GenericBoundedTypes;
+package Generic.GenericBoundedTypes;
 
 public class Test <T extends B>{
     private final T value;

@@ -1,4 +1,4 @@
-package GenericBoundedTypes;
+package Generic.GenericBoundedTypes;
 
 public class Main {
     public static void main(String[] args) {

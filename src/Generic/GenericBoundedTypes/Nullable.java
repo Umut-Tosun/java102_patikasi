@@ -1,4 +1,4 @@
-package GenericBoundedTypes;
+package Generic.GenericBoundedTypes;
 
 public class Nullable <T extends Number>{
     private final T value;
